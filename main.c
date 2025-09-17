@@ -27,7 +27,7 @@ void load_users() {
     while (fgets(line, sizeof(line), file)) {
         // ⚠️ Format String Vulnerability:
         // If attacker can control content of 'users.txt', this becomes exploitable
-        printf(line); // attacker-controlled format string
+        printf("%s", line); // safely print the line content
     }
 
     fclose(file);
